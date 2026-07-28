@@ -1,5 +1,9 @@
 # event-correlation-engine
 
+[![build](https://github.com/OmarMalas98/event-correlation-engine/actions/workflows/build.yml/badge.svg)](https://github.com/OmarMalas98/event-correlation-engine/actions/workflows/build.yml)
+![Java 17](https://img.shields.io/badge/Java-17-b07219)
+![Licence MIT](https://img.shields.io/badge/licence-MIT-blue)
+
 **Turns a high-volume event stream into a short list of things a human can actually work on.**
 
 An alerting system that produces forty notifications for one outage has not helped anyone — it has
