@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: event-correlation-engine
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
+
+server:
+  port: ${SERVER_PORT:8090}
+
+correlation:
+  # How often window detectors re-evaluate. Short here so the demo is watchable; in production this
+  # is a trade-off between detection latency and load on the event store.
+  window-evaluation-interval: ${WINDOW_EVALUATION_INTERVAL:PT10S}
+  # How often quiet cases are checked for auto-close.
+  auto-close-interval: ${AUTO_CLOSE_INTERVAL:PT10S}
+  store:
+    # Retention only has to outlast the longest detector window — nothing older can change a
+    # decision, and an unbounded buffer in front of a busy stream is an OOM with a delay on it.
+    max-events-per-topic: ${MAX_EVENTS_PER_TOPIC:10000}
+
+logging:
+  level:
+    io.portfolio.correlation: ${LOG_LEVEL:INFO}
